@@ -1,73 +1,188 @@
-# Welcome to your Lovable project
+# AKIRO — AI Learning & Career Companion
 
-## Project info
+A modern, production-ready React application for AI-powered learning and career development in tech. Built with React, TypeScript, Tailwind CSS, and featuring a complete user journey from skill selection to job readiness.
 
-**URL**: https://lovable.dev/projects/02ed5be2-d61f-41c3-be18-4b1e9088a5c5
+## 🌊 Design System - Ocean Calm Theme
 
-## How can I edit this code?
+- **Primary**: `#2563EB` (Ocean Blue)
+- **Accent**: `#14B8A6` (Teal)
+- **Background**: `#F0F9FF` (Light Blue)
+- **Text**: `#0F172A` (Dark Blue)
+- **Typography**: Inter font family
+- **Components**: Card-based layout with generous whitespace, rounded corners, subtle shadows
 
-There are several ways of editing your application.
+## ✨ Features
 
-**Use Lovable**
+### 🎯 Complete User Journey
+- **Landing Page**: Hero section with social proof and feature highlights
+- **Authentication**: Mock signup/login with validation
+- **Skill Selection**: Interactive cards for Full Stack, MERN, DevOps, Data Science, Cloud
+- **Personalized Roadmap**: Visual milestone tracker with progress indicators
+- **Weekly Assignments**: Quizzes and projects with status tracking
+- **Job Search**: Live job listings with filters and recommendations
+- **AI Chat Helper**: Collapsible chat widget with code examples
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/02ed5be2-d61f-41c3-be18-4b1e9088a5c5) and start prompting.
+### 🎨 Design Features
+- Responsive design with mobile-first approach
+- Ocean Calm color palette throughout
+- Gradient buttons and hero sections
+- Card hover effects and smooth transitions
+- Accessibility-focused with semantic HTML and ARIA labels
+- Dark/light mode support built into the design system
 
-Changes made via Lovable will be committed automatically to this repo.
+### 🔧 Technical Features
+- **React 18** with TypeScript
+- **Tailwind CSS** with custom design system
+- **React Router** for navigation
+- **Context API** for state management
+- **Mock APIs** for data simulation
+- **Component-based architecture**
+- **Fully typed with TypeScript**
 
-**Use your preferred IDE**
+## 🚀 Quick Start
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+```bash
+# Install dependencies
+npm install
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start development server
 npm run dev
+
+# Build for production
+npm run build
 ```
 
-**Edit a file directly in GitHub**
+## 📁 Project Structure
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```
+src/
+├── components/
+│   ├── ui/           # Shadcn UI components with custom variants
+│   ├── Navigation.tsx
+│   ├── ChatHelper.tsx
+│   ├── WeeklyAssignments.tsx
+│   └── ...
+├── pages/
+│   ├── HomePage.tsx  # Landing page with auth modals
+│   ├── Dashboard.tsx # Main student dashboard
+│   ├── Roadmap.tsx   # Learning path visualization
+│   └── JobSearch.tsx # Job listings and search
+├── contexts/
+│   └── AuthContext.tsx # Authentication state
+├── lib/
+│   └── api.ts        # Mock API functions
+└── assets/           # Generated images and assets
+```
 
-**Use GitHub Codespaces**
+## 🎨 Component Library
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Custom Button Variants
+- `hero`: Gradient background with hover effects
+- `accent`: Teal accent color variant
+- `card`: Card-style button for secondary actions
 
-## What technologies are used for this project?
+### Key Components
+- **SkillSelection**: Interactive skill cards with market data
+- **WeeklyAssignments**: Assignment cards with quiz modal
+- **ChatHelper**: Collapsible AI tutor with code preview
+- **Navigation**: Responsive nav with user dropdown
 
-This project is built with:
+## 🌐 Mock APIs
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+All data is mocked client-side for easy development:
 
-## How can I deploy this project?
+```typescript
+// Available endpoints
+getSkills()           // Skill cards with market data
+getRoadmap(skillId)   // Learning milestones
+getJobs(query)        // Job listings
+getAssignments()      // Weekly tasks
+getTrendingSkills()   // Popular skills
+```
 
-Simply open [Lovable](https://lovable.dev/projects/02ed5be2-d61f-41c3-be18-4b1e9088a5c5) and click on Share -> Publish.
+### Replacing with Real APIs
 
-## Can I connect a custom domain to my Lovable project?
+To connect real APIs, update the functions in `src/lib/api.ts`:
 
-Yes, you can!
+```typescript
+export const getJobs = async (query?: string): Promise<Job[]> => {
+  const response = await fetch(`/api/jobs?query=${query}`);
+  return response.json();
+};
+```
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 🎯 Key Pages & Routes
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+- `/` - Landing page with authentication
+- `/dashboard` - Student dashboard with progress
+- `/roadmap` - Visual learning path
+- `/jobs` - Job search and recommendations
+
+## 🔧 Customization
+
+### Design System
+- Edit `src/index.css` for color tokens and gradients
+- Update `tailwind.config.ts` for custom utilities
+- Modify component variants in `src/components/ui/`
+
+### Adding New Skills
+Update the mock data in `src/lib/api.ts`:
+
+```typescript
+const mockSkills: Skill[] = [
+  {
+    id: 'new-skill',
+    name: 'New Technology',
+    description: 'Learn the latest tech',
+    demand: 'High',
+    openings: 50000,
+    trending: true,
+    icon: '🚀'
+  }
+];
+```
+
+## 📱 Responsive Design
+
+- Mobile-first approach
+- Breakpoints: sm (640px), md (768px), lg (1024px), xl (1280px)
+- All components are fully responsive
+- Touch-friendly interface on mobile
+
+## ♿ Accessibility
+
+- Semantic HTML structure
+- ARIA labels and live regions
+- Keyboard navigation support
+- Color contrast ratio ≥ 4.5:1
+- Screen reader friendly
+
+## 🎭 Production Ready
+
+- TypeScript for type safety
+- ESLint configuration
+- Optimized build process
+- Component error boundaries
+- Performance optimizations
+
+## 📈 Next Steps
+
+1. **Connect Real Backend**: Replace mock APIs with actual endpoints
+2. **Add Authentication**: Integrate with Firebase/Auth0/Supabase
+3. **Payment Integration**: Add subscription/premium features
+4. **Advanced Analytics**: Track user progress and engagement
+5. **Mobile App**: React Native version using shared components
+
+## 🛠 Built With
+
+- [React 18](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Shadcn/ui](https://ui.shadcn.com/)
+- [Lucide React](https://lucide.dev/) for icons
+- [React Router](https://reactrouter.com/)
+- [Vite](https://vitejs.dev/) for build tooling
+
+---
+
+**AKIRO** - Empowering the next generation of developers with AI-powered learning. 🚀
